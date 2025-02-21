@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       const  products = [
+        {id:1,name:"P1", price: 34},
+        {id:2,name:"p2",price: 50},
+        {id:3, name:"p3",price:40},
+        
+       ] ;
+        // function showProducts(){
+        
+        // }
+        // const showProducts = () => {
+        //     let str = " "
+        //     products.forEach((value) => {
+        //        str+=  `<div>
+        //         ${value.id} -  ${value.name} - ${value.price}</div>`
+               
+        //     })
+        //     divProducts.innerHTML = str;
+        // };
+        // insted of foreach we can use map
+        const cart = {}
+        //const obj = {apple:1, mango:2};
+        const addTocart = (id) =>{
+            // const test = {}
+            // test["jhon"]=45       // add elements to the objects
+            // test["caythi"]=50
+            // test["jhon"]=65          //in objects keys are not repeat
+            // console.log(test)
+            // const obj = {apple:1, mango:2};
+            // console.log(obj["apple"]); //returns the value of the apple o/p =1
+            // if(obj["apple"]){
+            //     obj["apple"]+=1;
+            // console.log("exist");
+            //      }
+            // else{
+            //     console.log("does not exist");
+            // }
+            // console.log(obj);
+            // divCart.innerHTML = obj["apple"]
+            // console.log(cart);
+           // const test = {}
+           cart[id] = 1;
+           showCart();
+           console.log(cart);
+            
+        };
+        const showCart = () =>{
+            let str = " "
+            products.map((value) =>{
+                if(cart[value.id]){
+            str+=`<div>${value.id} - ${value.name} - ${value.price}</div>`;
+                }
+            });
+            divCart.innerHTML = str
+        };
+        const showProducts = () => {
+            let str = " "
+            products.map((value) => {
+               str+=  `<div>
+                ${value.id} -  ${value.name} - ${value.price} <button onclick ='addTocart(${value.id})'>Add to Card</button></div>`
+               
+            })
+            divProducts.innerHTML = str;
+        };
+    </script>
+</head>
+<body onload="showProducts()">
+      <h1>My Store</h1>
+      <hr>
+      <h3>products</h3>
+      <div id="divProducts"></div>
+      <h3>My Cart</h3>
+      <div id="divCart"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- <style>
+            .container{
+                display: flex;
+                justify-self: center;
+            }
+            .box{
+                margin: 20px;
+            }
+        </style>
+         -->
+        <script>
+            let value = 0
+            function increment(){
+                 value++;
+                 data.innerHTML = value
+            }
+            function decrement(){
+                value--;
+                if(value>=0){
+               data.innerHTML = value
+                }
+            }
+        </script>
+    </head>
+<body>
+    <button onclick="decrement()">-</button>
+    <span id = "data"></span>
+    <button onclick="increment()">+</button>
+</body>
+</html>

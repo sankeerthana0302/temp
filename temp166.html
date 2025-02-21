@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         let users = [];
+         let useremail = " "
+         let username = " "
+         let currBalance = 0
+        
+        function addUser(){
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let dob = document.getElementById("dob").value;
+            let user = {
+                nama:name,
+                email:email,
+                password:password,
+                dob:dob,
+                balance:0
+            };
+            users.push(user);
+            showLogin();
+        }
+        function word(){
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            for(let i=0;i<users.length;i++){
+                if(users[i].email == email && users[i].password == password){
+                    useremail=email
+                    username = users[i].name
+                    currBalance = users[i].balance
+                   home()
+                   break;
+                }
+                else{
+                    Msg.innerHTML="Access denied";
+                }
+            }
+                   
+        //     let str=`
+        //   <h2>welcome</h2>
+        //   <button onclick='showLogin()'>Logout</button>
+        //  `
+        //  root.innerHTML=str;
+        }
+         function showForm(){
+            let str = `
+                <h2>REGISTRATION FORM</h2>
+                <p><input type="text" id="name" placeholder="Name"></p>
+                <p><input type="text" id="email" placeholder="Email"></p>
+                <p><input type="password" id = "password" placeholder="password"></p>
+                <p><input type="date" id="dob"></p>
+                <p><button  onclick='addUser()'>Sumbit</button></p>
+                <p>Already a member?<button onclick='showLogin()'>Login Here</button></p>
+            `
+            root.innerHTML = str;
+            
+        }
+        function showLogin(){
+            let str = `
+            <div>
+                <h2>Login Form</h2>
+                <div id='Msg'></div>
+                <p><input   id="email" type="text"></p>
+                <p><input  id="password" type="password"></p>
+                <p><button onclick= 'word()'>Log In</button></p>
+                <p><button onclick= 'showForm()'>Create Account</button></p>
+            </div> 
+            `;
+     root.innerHTML = str;
+        }
+       
+        
+</script>
+</head>
+<body onload="showLogin()"> // calling the function
+    <h1>HDFE BANK</h1>
+<hr>
+    <div id="root"></div> 
+<hr>
+    <h3>@Copyright 2005.All rights reserved</h3> 
+</body>
+</html>

@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <script>
+        function op() {
+            let c = parseFloat(document.getElementById("num1").value);
+            let d = parseFloat(document.getElementById("num2").value);
+
+            if (isNaN(c) || isNaN(d)) {
+                document.getElementById("data").innerHTML = "Please enter valid numbers!";
+                return;
+            }
+
+            let sum = c + d;
+            let dif = c - d;
+            let pr = c * d;
+            let div = d !== 0 ? (c / d).toFixed(2) : "Infinity";
+            let mod = d !== 0 ? c % d : "Undefined";
+
+            let output = `
+                <p>Sum: ${sum}</p>
+                <p>Difference: ${dif}</p>
+                <p>Product: ${pr}</p>
+                <p>Division: ${div}</p>
+                <p>Modulus: ${mod}</p>
+            `;
+
+            document.getElementById("data").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+    <p><input type="number" id="num1" placeholder="Enter num1"></p>
+    <p><input type="number" id="num2" placeholder="Enter num2"></p>
+    <button onclick="op()">Calculate</button>
+    <div id="data"></div>
+</body>
+</html>
+
